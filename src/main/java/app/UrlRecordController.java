@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import javax.json.*;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/url")
@@ -14,7 +15,7 @@ public class UrlRecordController {
 
   @RequestMapping(method = RequestMethod.POST, produces="application/json")
   @ResponseStatus(HttpStatus.CREATED)
-  String create(@RequestBody UrlRecord urlRecord) {
+  String create(@RequestBody @Valid UrlRecord urlRecord) {
     return repository.insert(urlRecord).getShortUrlAsJson();
   }
 
