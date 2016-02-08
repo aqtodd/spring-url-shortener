@@ -12,15 +12,15 @@ public class UrlRecordController {
   @Autowired
   private UrlRecordRepository repository;
 
-  @RequestMapping(method = RequestMethod.POST)
+  @RequestMapping(method = RequestMethod.POST, produces="application/json")
   @ResponseStatus(HttpStatus.CREATED)
-  JsonObject create(@RequestBody UrlRecord urlRecord) {
+  String create(@RequestBody UrlRecord urlRecord) {
     return repository.insert(urlRecord).getShortUrlAsJson();
   }
 
-  @RequestMapping(value = "{id}", method = RequestMethod.GET)
-  UrlRecord findById(@PathVariable("id") String id) {
-        return repository.findById(id);
+  @RequestMapping(value = "{id}", method = RequestMethod.GET, produces="application/json")
+  String findById(@PathVariable("id") String id) {
+        return repository.findById(id).getLongUrlAsJson();
   }
 
 }

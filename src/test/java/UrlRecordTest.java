@@ -30,7 +30,7 @@ public class UrlRecordTest {
     JsonObject result = Json.createObjectBuilder()
                   .add("shortUrl", expectedShortUrl)
                   .build();
-    return result;
+    return result.toString();
   }
 
 }

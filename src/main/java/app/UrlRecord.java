@@ -41,11 +41,18 @@ public class UrlRecord {
     return BASE_URL + id;
   }
 
-  public JsonObject getShortUrlAsJson() {
+  public String getShortUrlAsJson() {
     JsonObject result = Json.createObjectBuilder()
                   .add("shortUrl", getShortUrl())
                   .build();
-    return result;
+    return result.toString();
+  }
+
+  public String getLongUrlAsJson() {
+    JsonObject result = Json.createObjectBuilder()
+                  .add("longUrl", getLongUrl())
+                  .build();
+    return result.toString();
   }
 
 }
