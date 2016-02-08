@@ -10,6 +10,8 @@ public class UrlRecord {
   private String id;
   private String longUrl;
 
+  public UrlRecord() {}
+
   public UrlRecord(String longUrl) {
     this.longUrl = longUrl;
   }
