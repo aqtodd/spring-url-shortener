@@ -1,3 +1,5 @@
+package babycenter.urlshortener;
+
 import org.springframework.data.annotation.Id;
 
 public class UrlRecord {
@@ -10,6 +12,14 @@ public class UrlRecord {
 
   public UrlRecord(String longUrl) {
     this.longUrl = longUrl;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public String getLongUrl() {
+    return longUrl;
   }
 
 }
