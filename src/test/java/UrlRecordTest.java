@@ -21,8 +21,6 @@ public class UrlRecordTest {
     String expectedId = "12345678";
     String expectedShortUrl = "http://localhost:8080/url/12345678";
     UrlRecord urlRecord = new UrlRecord(longUrl, expectedId);
-    // String test_results = String.format("expected Json:  %s\ngenerated Json: %s\n", expectedJson(expectedShortUrl), urlRecord.getShortUrlAsJson());
-    // System.out.println(test_results);
     assertTrue( expectedJson("shortUrl",expectedShortUrl).equals(urlRecord.getShortUrlAsJson()) );
   }
 
