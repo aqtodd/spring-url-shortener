@@ -6,6 +6,6 @@ public interface UrlRecordRepository extends MongoRepository<UrlRecord, String> 
 
     public UrlRecord findById(String id);
 
-    public <S extends UrlRecord> S insert(UrlRecord urlRecord);
+    public UrlRecord insert(UrlRecord urlRecord);
 
 }
