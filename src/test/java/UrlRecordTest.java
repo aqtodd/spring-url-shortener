@@ -23,12 +23,20 @@ public class UrlRecordTest {
     UrlRecord urlRecord = new UrlRecord(longUrl, expectedId);
     // String test_results = String.format("expected Json:  %s\ngenerated Json: %s\n", expectedJson(expectedShortUrl), urlRecord.getShortUrlAsJson());
     // System.out.println(test_results);
-    assertTrue( expectedJson(expectedShortUrl).equals(urlRecord.getShortUrlAsJson()) );
+    assertTrue( expectedJson("shortUrl",expectedShortUrl).equals(urlRecord.getShortUrlAsJson()) );
   }
 
-  private JsonObject expectedJson(String expectedShortUrl) {
+  @Test
+  public void getsLongUrl() {
+    String longUrl = "https://i.ytimg.com/vi/b6dT4kyVUuY/maxresdefault.jpg";
+    UrlRecord urlRecord = new UrlRecord(longUrl);
+    assertTrue( expectedJson("longUrl", longUrl).equals(urlRecord.getLongUrlAsJson()) );
+
+  }
+
+  private String expectedJson(String urlName, String expectedUrl) {
     JsonObject result = Json.createObjectBuilder()
-                  .add("shortUrl", expectedShortUrl)
+                  .add(urlName, expectedUrl)
                   .build();
     return result.toString();
   }
