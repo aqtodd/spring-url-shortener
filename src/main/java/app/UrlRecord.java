@@ -6,9 +6,7 @@ public class UrlRecord {
 
   @Id
   private String id;
-  private String longUrl
-
-  public UrlRecord() {}
+  private String longUrl;
 
   public UrlRecord(String longUrl) {
     this.longUrl = longUrl;
