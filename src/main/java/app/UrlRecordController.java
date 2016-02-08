@@ -10,18 +10,22 @@ import javax.validation.Valid;
 @RequestMapping("/url")
 public class UrlRecordController {
 
+  private UrlRecordService service;
+
   @Autowired
-  private UrlRecordRepository repository;
+  UrlRecordController(UrlRecordService service) {
+    this.service = service;
+  }
 
   @RequestMapping(method = RequestMethod.POST, produces="application/json")
   @ResponseStatus(HttpStatus.CREATED)
   String create(@RequestBody @Valid UrlRecord urlRecord) {
-    return repository.insert(urlRecord).getShortUrlAsJson();
+    return service.insert(urlRecord);
   }
 
   @RequestMapping(value = "{id}", method = RequestMethod.GET, produces="application/json")
   String findById(@PathVariable("id") String id) {
-        return repository.findById(id).getLongUrlAsJson();
+    return service.findById(id);
   }
 
 }
